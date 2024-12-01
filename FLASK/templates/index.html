@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CO2 Emissions Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Predict CO2 Emissions</h1>
+        <form action="/predict" method="POST">
+            <label>Engine Size:</label>
+            <input type="number" step="0.1" name="enginesize" required>
+            
+            <label>Cylinders:</label>
+            <input type="number" name="cylinders" required>
+            
+            <label>Fuel Consumption (City):</label>
+            <input type="number" step="0.1" name="fuel_city" required>
+            
+            <label>Fuel Consumption (Highway):</label>
+            <input type="number" step="0.1" name="fuel_hwy" required>
+            
+            <label>Fuel Consumption (Combined):</label>
+            <input type="number" step="0.1" name="fuel_comb" required>
+            
+            <label>Fuel Consumption (Combined MPG):</label>
+            <input type="number" name="fuel_mpg" required>
+            
+            <label>Vehicle Class:</label>
+            <input type="text" name="vehicleclass" required>
+            
+            <label>Transmission:</label>
+            <input type="text" name="transmission" required>
+            
+            <label>Fuel Type:</label>
+            <input type="text" name="fueltype" required>
+            
+            <button type="submit">Predict</button>
+        </form>
+        {% if prediction %}
+            <h2>Predicted CO2 Emissions: {{ prediction }} g/km</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
